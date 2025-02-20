@@ -33,6 +33,7 @@ export default class MyLinter {
     traverse(ast, {
       // ASTの各ノードに入ったときに呼び出されるコールバック
       enter: (node) => {
+        if (node.type === "MemberExpression") console.log("Hit!!!");
         // this.emitter.onしてないnode.typeが来た場合は何も起こらない
         this._emitter.emit(node.type, node);
       },
